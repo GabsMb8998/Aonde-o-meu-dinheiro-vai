@@ -1,15 +1,16 @@
 'use client'
 
-import { ButtonHTMLAttributes, useState } from "react"
+import { ButtonHTMLAttributes, ReactNode, useState } from "react"
 import IconDropDown from "../../../public/IconDropDown"
 
 interface SelectProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     options? : string[] | number[]
     onChange?: () => void
     error?: string
+    children: ReactNode
 } 
 
-function Select({options, error, onChange, ...props}:SelectProps){
+function Select({options, error, onChange, children,  ...props}:SelectProps){
     const [isOpen, setIsOpen] = useState(false)
     const [selected, setSelected] = useState<string | number>('Selecione uma opção')
     
@@ -25,6 +26,11 @@ function Select({options, error, onChange, ...props}:SelectProps){
 
     return(
         <div className="w-full relative">
+            
+            <div className="text-[#525252] font-medium mb-1">
+                {children}
+            </div>
+
             <div 
             onClick={handleOpen}
             className="w-full flex items-center justify-between gap-8 px-4 border-1 border-[#D8D8D8] rounded py-2">
@@ -35,7 +41,7 @@ function Select({options, error, onChange, ...props}:SelectProps){
             </div>
 
             {isOpen && (
-                <div className=" absolute w-full max-h-44 overflow-y-auto  shadow-lg border-1 border-[#E7E7E7] rounded-lg mt-1">
+                <div className=" absolute w-full z-10 bg-white max-h-44 overflow-y-auto  shadow-lg border-1 border-[#E7E7E7] rounded-lg mt-1">
                     {options2.map((option)=>(
                         <div 
                         onClick={()=>handleSelected(option)}

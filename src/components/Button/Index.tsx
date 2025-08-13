@@ -21,8 +21,8 @@ const buttonStyles = {
         },
         'tertiary' : {
             'container': 'hover:brightness-95', 
-            'button': 'bg-linear-to-r from-[#FD9D6D] to-[#FF91F6] hover:bg-[#fff] w-32 rounded py-2 ',
-            'span': 'text-white'
+            'button': 'bg-linear-to-r from-[#FD9D6D] to-[#FF91F6] hover:bg-[#fff] w-32 rounded py-[6px] ',
+            'span': 'text-white text-[16px]'
         },
         'quaternary' : {
             'container': 'hover:brightness-95', 
@@ -42,7 +42,7 @@ const buttonStyles = {
             <div className={`${classes.container}`}>
                 <button 
                 {...props} 
-                className={`${classes.button} bg-white flex justify-center items-center px-5 gap-3 font-semibold text-[#414141] text-lg  duration-150 `}>
+                className={`${classes.button}  bg-white flex justify-center items-center px-5 gap-3 font-semibold text-[#414141] text-lg  duration-150 `}>
                     {childrenWithProps}
                     <span className={`${classes.span}`}>
                         {label}

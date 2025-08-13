@@ -7,11 +7,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 function Input({children, width, ...props} : InputProps){
     return(
-        <div className={` w-${width} flex ${width ? 'items-center gap-6': 'flex-col' } `}>
-            <div className="text-[#525252] font-medium">
+        <div className={` flex ${width ? 'items-center gap-6': 'flex-col' } `}>
+            <div className="text-[#525252] font-medium mb-1">
                 {children}
             </div>
-            <input type="text" {...props} className={`w-full placeholder:text-[#A9A9A9] border-1 px-4 py-2 rounded border-[#D8D8D8] focus:outline-none`}/>
+            <input type="text" {...props} className={`${width? `w-[${width}px] py-1`: 'w-full py-2 '} placeholder:text-[#A9A9A9] placeholder:text-sm border-1 px-4 rounded border-[#D8D8D8] focus:outline-none`}/>
         </div>
     )
 }

@@ -14,6 +14,8 @@ import DespesasDashboard from "@/components/Dashboards/DashboardDespesas.tsx/Ind
 import { useState } from "react";
 import Modal from "@/components/Modais/Index";
 import ModalAddDespesa from "@/components/Modais/ModalAddDespesa/Index";
+import ModalAddOrcamento from "@/components/Modais/ModalOrcamento/Index";
+import ModalAddCategoria from "@/components/Modais/ModalCategoria/Index";
 
 export default function Home() {
 
@@ -55,9 +57,10 @@ export default function Home() {
             </ContainerBorder>
 
         </section>
+
         {openModalAddDespesa && (
-          <Modal>
-            <ModalAddDespesa/>
+          <Modal title="Atualizar orçamento" onClick={()=>setOpenModalAddDespesa(false)}>
+            <ModalAddCategoria/>
           </Modal>
         )}
   

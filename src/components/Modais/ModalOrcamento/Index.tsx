@@ -2,7 +2,7 @@ import Button from "@/components/Button/Index"
 import Input from "@/components/Input/Index"
 import Select from "@/components/Select/Index"
 
-function ModalAddDespesa(){
+function ModalOrcamento(){
     return(
         <>
             <Input width="100" placeholder="R$ 00,00">
@@ -12,10 +12,6 @@ function ModalAddDespesa(){
                 <span>categoria</span>
             </Select>
 
-            <Input placeholder="Ex.: Aniversário mari">
-                <span>descrição:</span>
-            </Input>
-
             <div className="self-end">
                 <Button variant="tertiary" label="salvar"/>
             </div>
@@ -24,4 +20,4 @@ function ModalAddDespesa(){
     )
 }
 
-export default ModalAddDespesa
+export default ModalOrcamento
