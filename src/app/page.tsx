@@ -41,13 +41,18 @@ export default function Home() {
           <ContainerValues title="% orçamento" value="100%"/>
         </section>
 
-        <section className="w-full h-[68%]  flex gap-4 mt-3">
+        <section className="w-full  flex gap-4 mt-3">
+
+          <div className="w-full">
 
              <ContainerBorder label={'Despesas'}>
               <DespesasDashboard/>
             </ContainerBorder> 
              
-  
+
+          </div>
+
+          <div className="w-full">
             <ContainerBorder label={'Despesas e receitas'}>
                   <DespesasEReceitasDashboard/>
               </ContainerBorder>
@@ -55,6 +60,8 @@ export default function Home() {
             <ContainerBorder label={'categorias mais gastas'}>
 
             </ContainerBorder>
+          </div>
+  
 
         </section>
 

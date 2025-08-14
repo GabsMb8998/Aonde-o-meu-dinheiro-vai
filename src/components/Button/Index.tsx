@@ -15,8 +15,8 @@ const buttonStyles = {
             'span': ''
         },
         'secondary' : {
-            'container': 'bg-linear-to-r from-[#E9B700] to-[#FF6BF8] p-[2px] ', 
-            'button': 'rounded-[1px] hover:bg-[#f6f6f6] rounded-[1px] py-3 ',
+            'container': 'hover:brightness-95 bg-linear-to-r from-[#E9B700] to-[#FF6BF8] p-[2px] rounded ', 
+            'button': 'rounded-[1px] hover:bg-[#f6f6f6] rounded py-3 text-sm font-semibold ',
             'span': 'bg-clip-text text-transparent bg-gradient-to-r from-[#E9B700] to-[#FF6BF8]'
         },
         'tertiary' : {

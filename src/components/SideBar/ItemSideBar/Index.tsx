@@ -7,7 +7,7 @@ interface ItemSideBarProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 }
 
 const ItemSideBar = forwardRef<HTMLButtonElement, ItemSideBarProps>(function ItemSideBar(
-  { children, label, selected, ...props },
+  { children, label, selected,  ...props },
   ref
 ) {
 

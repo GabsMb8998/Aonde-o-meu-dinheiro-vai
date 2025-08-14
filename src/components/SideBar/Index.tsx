@@ -6,19 +6,23 @@ import IconExtrato from "../../../public/IconExtrato"
 import IconOrcamento from "../../../public/IconOrcamento"
 import ItemSideBar from "./ItemSideBar/Index"
 import IconLogOut from "../../../public/IconLogOut"
+import { useRouter } from "next/navigation"
 
 const itemSideBar = [
     {
         'label': 'Dashboard',
-        'icon': <IconDashboard width="20"/>
+        'icon': <IconDashboard width="20"/>,
+        'router': 'dashboard'
     },
     {
         'label': 'Extrato',
-        'icon': <IconExtrato width="20"/>
+        'icon': <IconExtrato width="20"/>,
+        'router': 'extrato'
     },
     {
         'label': 'Orçamento',
-        'icon': <IconOrcamento width="20"/>
+        'icon': <IconOrcamento width="20"/>,
+        'router': 'orcamento'
     },
 ]
 
@@ -28,9 +32,12 @@ function Sidebar(){
     const indicatorRef = useRef<HTMLDivElement>(null)
     const itemsRefs = useRef<(HTMLButtonElement | null)[]>([])
 
-    const handleSelected = (selected: string, index: number) => {
+    const navigate = useRouter()
+
+    const handleSelected = (selected: string, index: number, router: string) => {
         setSelected(selected)
         setActiveIndex(index)
+        navigate.push(router.toLowerCase())
     }
 
     useEffect(()=>{
@@ -60,7 +67,7 @@ function Sidebar(){
                         ref={(el: any)=>(itemsRefs.current[index] = el)}
                         label={item.label} 
                         selected={selected==item.label} 
-                        onClick={()=>handleSelected(item.label, index)}>
+                        onClick={()=>handleSelected(item.label, index, item.router)}>
                             {item.icon}
                         </ItemSideBar>
                     ))}

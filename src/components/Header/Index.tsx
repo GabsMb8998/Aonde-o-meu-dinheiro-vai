@@ -9,7 +9,10 @@ function Header({title, children}: HeaderProps){
     return(
         <header className=" w-full flex justify-between items-center text-3xl font-medium ">
             {title}
-            {children}
+
+            <div className="flex items-center gap-3">
+                {children}
+            </div>
         </header>
     )
 }
