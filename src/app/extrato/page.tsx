@@ -1,3 +1,4 @@
+'use client'
 import Button from "@/components/Button/Index"
 import Header from "@/components/Header/Index"
 import IconAdd from "../../../public/IconAdd"
@@ -7,15 +8,26 @@ import IconRecentes from "../../../public/iconRecentes"
 import IconAlimentacao from "../../../public/iconAlimentacao"
 import ContainerCategoria from "@/components/ContainerCategoria/Index"
 import Categoria from "@/components/Categoria/Index"
+import HeaderAbas from "@/components/HeaderAbas/Index"
+import { useState } from "react"
 
 
 function Extrato(){
 
-    const dateNow = new Date()
+    const [selected, setSelected] = useState('Teste')
+
+    const optionsHeader = [
+    {
+        "label": "Teste"
+    },
+    {
+        "label": "teste2"
+    },
+]
 
     return(
         <main className="w-full p-10">
-            <Header title="Receitas e Despesas">
+            {/* <Header title="Receitas e Despesas">
                 <Button label="adicionar receita" variant="secondary">
                     <IconAdd width="18"/>
                 </Button>
@@ -23,7 +35,9 @@ function Extrato(){
                 <Button label="adicionar despesa" variant="primary">
                     <IconAdd width="18"/>
                 </Button>
-            </Header>
+            </Header> */}
+
+            <HeaderAbas options={optionsHeader} selected={selected} handleSelected={setSelected}/>
 
             <div className="flex gap-4 h-[84%] mt-7">
 
