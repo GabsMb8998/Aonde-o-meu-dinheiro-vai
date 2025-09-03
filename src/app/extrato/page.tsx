@@ -27,7 +27,17 @@ function Extrato(){
         setOpenModalPost: setModalReceita
     } = useReceitaStore()
 
-    const dateNow = new Date()
+    const {
+        openModalPost: modalDespesa,
+        setOpenModalPost: setModalDespesa
+    } = useDespesaStore()
+
+    const {
+        openModalPost: modalReceita,
+        setOpenModalPost: setModalReceita
+    } = useReceitaStore()
+
+    const [selected, setSelected] = useState('Teste')
 
     return(
         <main className="w-full p-10">
@@ -40,6 +50,7 @@ function Extrato(){
                     <IconAdd width="18"/>
                 </Button>
             </Header>
+
 
             <div className="flex gap-4 h-[84%] mt-7">
 
