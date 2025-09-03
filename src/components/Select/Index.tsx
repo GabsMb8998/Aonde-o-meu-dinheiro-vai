@@ -5,7 +5,7 @@ import IconDropDown from "../../../public/IconDropDown"
 
 interface SelectProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     options? : string[] | number[]
-    onChange?: () => void
+    onChange?: (val: any) => void
     error?: string
     children: ReactNode
 } 
@@ -16,6 +16,7 @@ function Select({options, error, onChange, children,  ...props}:SelectProps){
     
     const handleOpen = () => {setIsOpen(!isOpen)}
     const handleSelected = (val: string| number) => {
+        onChange!(val)
         setSelected(val)
         setIsOpen(false)
 

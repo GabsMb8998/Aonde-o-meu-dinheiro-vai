@@ -1,35 +1,31 @@
 'use client'
 
-import Sidebar from "@/components/SideBar/Index";
-import IconAdd from "../../public/IconAdd";
-import Button from "../components/Button/Index";
-import Header from "../components/Header/Index";
-import Input from "../components/Input/Index";
-import Select from "../components/Select/Index";
-import './globals.css'
+import '../globals.css'
 import ContainerValues from "@/components/ContainerValues/Index";
 import ContainerBorder from "@/components/ContainerBorder/Index";
 import DespesasEReceitasDashboard from "@/components/Dashboards/DespesasEReceitasDashboard";
 import DespesasDashboard from "@/components/Dashboards/DashboardDespesas.tsx/Index";
-import { useState } from "react";
 import Modal from "@/components/Modais/Index";
-import ModalAddDespesa from "@/components/Modais/ModalAddDespesa/Index";
-import ModalAddOrcamento from "@/components/Modais/ModalOrcamento/Index";
 import ModalAddCategoria from "@/components/Modais/ModalCategoria/Index";
+import Header from "@/components/Header/Index";
+import Button from "@/components/Button/Index";
+import IconAdd from "../../../public/IconAdd";
+import { useState } from "react";
+import { useDespesaStore } from '@/stories/despesaStore';
 
 export default function Home() {
 
-  const [openModalAddDespesa, setOpenModalAddDespesa] = useState(false)
+    const {
+        openModalPost,
+        setOpenModalPost
+    } = useDespesaStore()
 
-  const openModal = () => {
-    setOpenModalAddDespesa(!openModalAddDespesa)
-  }
   return (
 
     <div className="p-12 w-full"> 
 
         <Header title="Informações Gerais">
-          <Button variant="primary" label="adicionar despesa" onClick={openModal}>
+          <Button variant="primary" label="adicionar despesa" onClick={()=>setOpenModalPost(openModalPost)}>
             <IconAdd/>
           </Button>
         </Header>
@@ -44,11 +40,9 @@ export default function Home() {
         <section className="w-full  flex gap-4 mt-3">
 
           <div className="w-full">
-
              <ContainerBorder label={'Despesas'}>
               <DespesasDashboard/>
             </ContainerBorder> 
-             
           </div>
 
           <div className="w-full">
@@ -60,12 +54,11 @@ export default function Home() {
 
             </ContainerBorder>
           </div>
-  
 
         </section>
 
-        {openModalAddDespesa && (
-          <Modal title="Atualizar orçamento" onClick={()=>setOpenModalAddDespesa(false)}>
+        {openModalPost && (
+          <Modal title="Atualizar orçamento" onClick={()=>setOpenModalPost(openModalPost)}>
             <ModalAddCategoria/>
           </Modal>
         )}
